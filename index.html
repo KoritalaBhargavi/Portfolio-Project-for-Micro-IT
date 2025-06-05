@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koritala Bhargavi - MyPortfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style type="text/css">
+        
+        body {
+            margin: 0;
+            line-height: 1.6;
+            background-color: white;
+            color: white;
+            padding-top: 10px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        header {
+            background-color: #a1887f;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin-left: 25px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease, transform 0.3s ease;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: white;
+            left: 0;
+            bottom: 0;
+            transition: width 0.3s ease;
+        }
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        nav ul li a:hover {
+            color: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            background-color: #a1887f;
+            padding: 120px 100px;
+            border-radius: 50px;
+            margin: 100px 100px 0 100px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        .hero-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+        .hero-text {
+            text-align: left;
+            max-width: 60%;
+            animation: fadeInText 1.5s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInText {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-image img {
+            max-width: 300px;
+            height: auto;
+            border-radius: 50%;
+            border: 5px solid #6d4c41;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            animation: zoomIn 1.5s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+        .highlight {
+            color: #6d4c41;
+        }
+        .button, .resume-btn {
+            display: inline-block;
+            background-color: #6d4c41;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 25px;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .button:hover, .resume-btn:hover {
+            background-color: #5d3f37;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        .resume-btn {
+            margin-left: 15px;
+            background-color: #8d6e63;
+        }
+        .resume-btn:hover {
+             background-color: #7a5e55;
+        }
+
+
+        .about, .projects, .contact, .cert {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            color: black;
+        }
+        .about {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            margin-top: 40px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        .about h2 {
+            color: #2c3e50;
+            margin-top: 1.5rem;
+            text-align: center;
+            display: inline-block;
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+            border-bottom: 3px solid #6d4c41;
+            padding-bottom: 10px;
+        }
+        .about h2 i {
+            margin-right: 10px;
+            color: #6d4c41;
+        }
+        .about p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .about h3 {
+            color: #2c3e50;
+            margin-top: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.6rem;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        .about ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            margin-bottom: 1.5rem;
+        }
+        .about ul li {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem 0;
+            border-bottom: 1px dashed #eee;
+            color: #444;
+            font-size: 1.05rem;
+        }
+        .about ul li:last-child {
+            border-bottom: none;
+        }
+        .about li i,
+        .about li img {
+            min-width: 24px;
+            height: 24px;
+            color: #6d4c41;
+        }
+        .about img {
+            vertical-align: middle;
+            border-radius: 3px;
+        }
+        .about ul li:hover {
+            background-color: #f0f8ff;
+            cursor: default;
+            transform: translateX(5px);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+
+        .projects h2, .cert h2, .contact h2 {
+            color: black;
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+            border-bottom: 3px solid #6d4c41;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .projectsgrid, .certgrid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .projectcard, .certcard {
+            background-color: #bcaaa4;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            padding: 20px;
+            text-align: center;
+            color: #333;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+        .projectcard:hover, .certcard:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+        .projectcard img, .certcard img {
+            max-width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+        .projectcard:hover img, .certcard:hover img {
+            transform: scale(1.05);
+        }
+        .projectcard h3, .certcard h3 {
+            margin-top: 0;
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .projectcard p {
+            font-size: 1rem;
+            color: #555;
+            min-height: 80px;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        .projectcard a, .certcard a {
+            display: inline-block;
+            margin: 8px;
+            padding: 10px 20px;
+            text-decoration: none;
+            background-color: #6d4c41;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .projectcard a:hover, .certcard a:hover {
+            background-color: #5d3f37;
+            transform: translateY(-2px);
+        }
+
+        .connect {
+            font-size: 20px;
+            margin: 80px auto;
+            max-width: 800px;
+            text-align: center;
+            color: black;
+        }
+        .connect h2 {
+            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+            border-bottom: 3px solid #6d4c41;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        .connect p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            color: #333;
+        }
+        .connect a img {
+            height: 60px;
+            width: 60px;
+            margin: 0 15px;
+            transition: transform 0.3s ease;
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .connect a img:hover {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+
+        #contact {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .contact-form label {
+            text-align: left;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: calc(100% - 20px);
+            padding: 12px 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            box-sizing: border-box;
+        }
+        .contact-form input[type="text"]:focus,
+        .contact-form input[type="email"]:focus,
+        .contact-form textarea:focus {
+            border-color: #6d4c41;
+            box-shadow: 0 0 8px rgba(109, 76, 65, 0.3);
+            outline: none;
+        }
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .contact-form button[type="submit"] {
+            background-color: #6d4c41;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 10px;
+        }
+        .contact-form button[type="submit"]:hover {
+            background-color: #5d3f37;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+
+        footer {
+            text-align: center;
+            padding: 25px 0;
+            background-color: #a1887f;
+            color: white;
+            width: 100%;
+            margin-top: 50px;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+        footer p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+
+        @media (max-width: 1024px) {
+            .hero {
+                margin: 100px 50px 0 50px;
+                padding: 100px 50px;
+            }
+            .hero-container {
+                gap: 40px;
+            }
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                background-color: #a1887f;
+            }
+            nav ul.open {
+                display: flex;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+            .hero {
+                margin: 80px 20px 0 20px;
+                padding: 80px 20px;
+                border-radius: 20px;
+            }
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-text {
+                max-width: 100%;
+                text-align: center;
+            }
+            .hero-image {
+                order: -1;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .button, .resume-btn {
+                margin-top: 15px;
+                display: block;
+                width: calc(100% - 40px);
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .resume-btn {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .projectsgrid, .certgrid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            .projectcard, .certcard {
+                padding: 15px;
+            }
+            .projectcard p {
+                min-height: auto;
+            }
+            .connect {
+                margin: 50px 20px;
+            }
+            .connect a img {
+                height: 50px;
+                width: 50px;
+                margin: 0 10px;
+            }
+            .contact-form {
+                padding: 20px;
+            }
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            nav {
+                align-items: center;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">KORITALA BHARGAVI</div>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-list">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#cert">Certifications</a></li>
+                <li><a href="#connect">Connect</a></li>
+                <li><a href="#contact">Contact</a></li> </ul>
+        </nav>
+    </header>
+
+    <section id="hero" class="hero">
+        <div class="hero-container">
+            <div class="hero-text">
+                <h1>Hi, I'm <span class="highlight">Koritala Bhargavi</span></h1>
+                <p>A passionate <strong>Data Analyst</strong></p>
+                <a href="#projects" class="button">View My Work</a>
+                <a href="KoritalaBhargavi_Basic.pdf" download="Koritala_Bhargavi_Resume.pdf" class="resume-btn">Download Resume</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://tse1.mm.bing.net/th?id=OIP.53tpipDfpRLX8XWq8Z-egQHaHZ&pid=Api&P=0&h=220" alt="Koritala Bhargavi" />
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2><i class="fas fa-user"></i> About Me</h2>
+        <p>
+            I am an aspiring Data Analyst currently pursuing a Bachelor of Technology in Data Science at Chalapathi Institute of Engineering & Technology. I have hands-on experience with tools such as Tableau, Power BI, Python, SQL, and Excel, and I’m passionate about uncovering meaningful insights from data to drive informed decision-making.
+        </p>
+        <p>
+            With a solid foundation in data visualization and a continuous learning mindset, I strive to apply my analytical abilities in real-world problem-solving. My recent certification in Data Visualization from Tata Group provided me with practical exposure and sharpened my skills in crafting impactful business visuals.
+        </p>
+
+        <h3><i class="fas fa-lightbulb"></i> Skills</h3>
+        <ul>
+            <li><i class="fas fa-chart-line"></i> Data Analysis & Interpretation</li>
+            <li><i class="fas fa-chart-pie"></i> Visualization & Presentation</li>
+            <li><i class="fas fa-search"></i> Analytics & Insights Generation</li>
+            <li><i class="fas fa-database"></i> Data Cleaning & Transformation</li>
+        </ul>
+
+        <h3><i class="fas fa-cogs"></i> Technical Skills</h3>
+        <ul>
+            <li><strong>Programming Languages:</strong>
+                <i class="fab fa-python"></i> Python,
+                <i class="fas fa-database"></i> SQL,
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/R_logo.svg" alt="R" width="16" height="16"> R
+            </li>
+            <li><strong>Libraries & Frameworks:</strong> NumPy, Pandas, Matplotlib</li>
+            <li><strong>Tools:</strong>
+                <img src="https://tse1.mm.bing.net/th?id=OIP.bzwqrp2A70m58vaFHu0uIgHaEK&pid=Api&P=0&h=220" alt="Tableau" width="16" height="16"> Tableau,
+                <img src="https://tse2.mm.bing.net/th?id=OIP.ZT5zsMj1BW9yERM7N05LfgHaEK&pid=Api&P=0&h=220" alt="Power BI" width="16" height="16"> Power BI,
+                MySQL,
+                <i class="fas fa-file-powerpoint"></i> PowerPoint
+            </li>
+            <li><strong>Other Skills:</strong> Machine Learning, Cloud Computing, Data Analytics, Front-End Development</li>
+        </ul>
+
+        <h3><i class="fas fa-certificate"></i> Certifications</h3>
+        <ul>
+            <li><strong><i class="fas fa-building"></i> Tata Group:</strong> Data Visualization – Empowering Business with Effective Insights</li>
+            <li><strong><i class="fas fa-chart-bar"></i> Great Learning:</strong> Data Visualization Using Tableau</li>
+            <li><strong><i class="fab fa-python"></i> CodeTantra:</strong> Python Programming</li>
+            <li><strong><i class="fab fa-android"></i> Google:</strong> Android Developer</li>
+            <li><strong><i class="fas fa-code"></i> CodeTantra:</strong> Problem Solving Using C</li>
+            <li><strong><i class="fas fa-database"></i> HackerRank:</strong> SQL</li>
+            <li><strong><i class="fas fa-cloud"></i> NPTEL:</strong> Cloud Computing</li>
+        </ul>
+
+        <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+        <ul>
+            <li><strong>Chalapathi Institute of Engineering & Technology:</strong> B.Tech in Data Science (Nov 2022 – Mar 2026)</li>
+            <li><strong>Sri Chaitanya Junior College:</strong> Intermediate (2020 – 2022)</li>
+            <li><strong>Sri Chaitanya Techno School:</strong> SSC (2019 – 2020)</li>
+        </ul>
+    </section>
+
+    <section id="projects" class="projects">
+        <h2>My Projects</h2>
+        <div class="projectsgrid">
+            <div class="projectcard">
+                <img src="https://github.com/KoritalaBhargavi/TableauProject1/blob/main/Netflix.png?raw=true" alt="Netflix Data Analysis">
+                <h3>Netflix Data Analysis Using Tableau</h3>
+                <p>This Tableau project focuses on analyzing the Netflix dataset to provide insights into the distribution of content (movies and TV shows) by country, genre, ratings, and more. The dashboard was built as part of a data visualization internship task to demonstrate storytelling using interactive visualizations.</p>
+                <a href="https://github.com/KoritalaBhargavi/TableauProject1" target="_blank">View Code</a>
+            </div>
+            <div class="projectcard">
+                <img src="https://github.com/KoritalaBhargavi/PowerBIProject/blob/main/Screenshot%202025-04-17%20173228.png?raw=true" alt="Twitter Data Analysis">
+                <h3>Twitter Data Analysis Using PowerBI</h3>
+                <p>This project analyzes Twitter data and presents key insights using an interactive Power BI dashboard. It was built to track tweet engagements, impressions, click performance, and categorize tweet behavior over time.</p>
+                <a href="https://github.com/KoritalaBhargavi/PowerBIProject" target="_blank">View Code</a>
+            </div>
+            <div class="projectcard">
+                <img src="https://tse1.mm.bing.net/th?id=OIP.NL9ztfMDTftdgkWMoWvoFAHaEL&pid=Api&P=0&h=220" alt="Diwali Sales Analysis">
+                <h3>Diwali Sales Analysis using Python</h3>
+                <p>This project performs a detailed analysis of Diwali sales data to extract meaningful insights about customer purchasing behaviors based on demographics and product categories. Using Python libraries such as Pandas, Matplotlib, and Seaborn, the analysis reveals trends across various factors including gender, age group, marital status, state, occupation, and product preferences.</p>
+                <a href="https://github.com/KoritalaBhargavi/DataAnalysisProject/blob/main/Diwali_Sales_Analysis.ipynb" target="_blank">View Code</a>
+            </div>
+            <div class="projectcard">
+                <img src="https://tse1.mm.bing.net/th?id=OIP.ISmB2nVmNtssog2vBbeqVQHaC5&pid=Api&P=0&h=220" alt="Movie Recommendation System">
+                <h3>Movie Recommendation System Using Python and Machine Learning</h3>
+                <p>Implemented a Movie Recommendation system that recommends movie based on the similarity scores campared between their recently watched,searched content to all the list of movies and Tv series present in the DataBase.</p>
+                <a href="https://github.com/KoritalaBhargavi/MachineLearning/blob/main/Movie_recommendation.ipynb" target="_blank">View Code</a>
+            </div>
+            <div class="projectcard">
+                <img src="https://tse4.mm.bing.net/th?id=OIP.cFF2LRVOUA4jBywcVdVPPQHaD6&pid=Api&P=0&h=220" alt="Urban Heat Islands Analysis">
+                <h3>Urban Heat Islands Analysis Using GIS and Statistical models</h3>
+                <p>Urban Heat Island (UHI) analysis using GIS and statistical models investigates the phenomenon where urban areas experience significantly higher temperatures than their surrounding rural counterparts. GIS plays a crucial role in visualizing and analyzing spatial data such as land surface temperature (derived from satellite imagery), land cover, and urban infrastructure.</p>
+                <a href="https://github.com/KoritalaBhargavi/DataAnalysisProject/blob/main/Urban_Heat_Islands_Analysis.ipynb" target="_blank">View Code</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="cert" class="cert">
+        <h2>My Certifications</h2>
+        <div class="certgrid">
+            <div class="certcard">
+                <img src="https://media.licdn.com/dms/image/v2/D5622AQEmvQZx9GxG9w/feedshare-shrink_800/feedshare-shrink_800/0/1719913145482?e=1750896000&v=beta&t=6iIuzi3KDIKpFAeiIwC2gjbPoWSdJmTYXjZTK75wczI" alt="Python programming By CodeTantra">
+                <h3>Python programming By CodeTantra</h3>
+                <a href="https://media.licdn.com/dms/image/v2/D5622AQEmvQZx9GxG9w/feedshare-shrink_800/feedshare-shrink_800/0/1719913145482?e=1750896000&v=beta&t=6iIuzi3KDIKpFAeiIwC2gjbPoWSdJmTYXjZTK75wczI" target="_blank">View</a>
+            </div>
+            <div class="certcard">
+                <img src="https://media.licdn.com/dms/image/v2/D5622AQGKUS7GF1YRXQ/feedshare-shrink_800/feedshare-shrink_800/0/1719937502589?e=1750896000&v=beta&t=QCnqR8qammQeg4eeJWt1G8EwZqbgbnwtpuxYPnYBJOk" alt="Problem solving Using C By CodeTantra">
+                <h3>Problem solving Using C By CodeTantra</h3>
+                <a href="https://media.licdn.com/dms/image/v2/D5622AQGKUS7GF1YRXQ/feedshare-shrink_800/feedshare-shrink_800/0/1719937502589?e=1750896000&v=beta&t=QCnqR8qammQeg4eeJWt1G8EwZqbgbnwtpuxYPnYBJOk" target="_blank">View</a>
+            </div>
+            <div class="certcard">
+                <img src="https://media.licdn.com/dms/image/v2/D5622AQGThdY3zSOGlw/feedshare-shrink_800/feedshare-shrink_800/0/1732730172859?e=1750896000&v=beta&t=7hZ9eyYqbjSeLYiHcvSwUvIDR3w8j9hW-c5pzSUDx_8" alt="Cloud Computing By NPTEL">
+                <h3>Cloud Computing By NPTEL</h3>
+                <a href="https://media.licdn.com/dms/image/v2/D5622AQGThdY3zSOGlw/feedshare-shrink_800/feedshare-shrink_800/0/1732730172859?e=1750896000&v=beta&t=7hZ9eyYqbjSeLYiHcvSwUvIDR3w8j9hW-c5pzSUDx_8" target="_blank">View</a>
+            </div>
+            <div class="certcard">
+                <img src="https://media.licdn.com/dms/image/v2/D5622AQEanuTmjCii5g/feedshare-shrink_800/B56ZR0rKiyHoAg-/0/1737124261668?e=1750896000&v=beta&t=6EqGpkFnJ3H4gbLIvV_NKtmxA1Hh8g_MxIOiFm_eMAM" alt="Data Visualization By Tata">
+                <h3>Data Visualization By Tata</h3>
+                <a href="https://media.licdn.com/dms/image/v2/D5622AQEanuTmjCii5g/feedshare-shrink_800/B56ZR0rKiyHoAg-/0/1737124261668?e=1750896000&v=beta&t=6EqGpkFnJ3H4gbLIvV_NKtmxA1Hh8g_MxIOiFm_eMAM" target="_blank">View</a>
+            </div>
+            <div class="certcard">
+                <img src="https://media.licdn.com/dms/image/v2/D5622AQEqg_2-e6muww/feedshare-shrink_800/feedshare-shrink_800/0/1720862634737?e=1750896000&v=beta&t=_yd3uqHv_7t3dhB3zRKav5LgZsm02vHjCaLiKkprlC0" alt="SQL By HackerRank">
+                <h3>SQL By HackerRank</h3>
+                <a href="https://media.licdn.com/dms/image/v2/D5622AQEqg_2-e6muww/feedshare-shrink_800/feedshare-shrink_800/0/1720862634737?e=1750896000&v=beta&t=_yd3uqHv_7t3dhB3zRKav5LgZsm02vHjCaLiKkprlC0s" target="_blank">View</a>
+            </div>
+            <div class="certcard">
+                <img src="https://media.licdn.com/dms/image/v2/D562DAQGJlvI_9u9saQ/profile-treasury-image-shrink_800_800/B56ZZYtD06GcAc-/0/1745244930971?e=1749135600&v=beta&t=LkYDwTKP1RD27KbfGCP7jQV7P7QK10o4o1HOQQfaEjk" alt="Java By HackerRank">
+                <h3>Java By HackerRank</h3>
+                <a href="https://media.licdn.com/dms/image/v2/D562DAQGJlvI_9u9saQ/profile-treasury-image-shrink_800_800/B56ZZYtD06GcAc-/0/1745244930971?e=1749135600&v=beta&t=LkYDwTKP1RD27KbfGCP7jQV7P7QK10o4o1HOQQfaEjk" target="_blank">View</a>
+            </div>
+            <div class="certcard">
+                <img src="https://media.licdn.com/dms/image/v2/D5622AQGpqQ4UW0v-_g/feedshare-shrink_800/B56ZXDSNdkHQAg-/0/1742738164554?e=1750896000&v=beta&t=XLHaf29LH8LJ-0pWLoHF2efFelNa5m7NKBEkIaLsKZY" alt="PowerBI By NullClass">
+                <h3>PowerBI By NullClass</h3>
+                <a href="https://media.licdn.com/dms/image/v2/D5622AQGpqQ4UW0v-_g/feedshare-shrink_800/B56ZXDSNdkHQAg-/0/1742738164554?e=1750896000&v=beta&t=XLHaf29LH8LJ-0pWLoHF2efFelNa5m7NKBEkIaLsKZY" target="_blank">View</a>
+            </div>
+            <div class="certcard">
+                <img src="https://media.licdn.com/dms/image/v2/D562DAQERhdFCOGwXTw/profile-treasury-image-shrink_800_800/B56ZW.QKyGGQAY-/0/1742653666902?e=1749135600&v=beta&t=J11ODbmPUA-bIhNHnvdGErFGVvc-wYuhphX4Lsxp5n0" alt="MongoDB By GeeksforGeeks">
+                <h3>MongoDB By GeeksforGeeks</h3>
+                <a href="https://media.licdn.com/dms/image/v2/D562DAQERhdFCOGwXTw/profile-treasury-image-shrink_800_800/B56ZW.QKyGGQAY-/0/1742653666902?e=1749135600&v=beta&t=J11ODbmPUA-bIhNHnvdGErFGVvc-wYuhphX4Lsxp5n0" target="_blank">View</a>
+            </div>
+            <div class="certcard">
+                <img src="https://media.licdn.com/dms/image/v2/D5622AQGUaIkesYPiIg/feedshare-shrink_800/B56ZcbMKyGHwAk-/0/1748507864982?e=1751500800&v=beta&t=9Klt2_1e6xmb3mVRShxX_EfBbVnmLQXSxWRgTaS3dpU" alt="Python Development and DataScience:Variables and DataTypes By Udemy">
+                <h3>Python Development and DataScience:Variables and DataTypes By Udemy</h3>
+                <a href="https://media.licdn.com/dms/image/v2/D5622AQGUaIkesYPiIg/feedshare-shrink_800/B56ZcbMKyGHwAk-/0/1748507864982?e=1751500800&v=beta&t=9Klt2_1e6xmb3mVRShxX_EfBbVnmLQXSxWRgTaS3dpU" target="_blank">View</a>
+            </div>
+            <div class="certcard">
+                <img src="https://media.licdn.com/dms/image/v2/D5622AQHZlH1AWQ8Hdw/feedshare-shrink_800/B56ZcbMKxeGoAk-/0/1748507865060?e=1751500800&v=beta&t=_YOD8Su4mOCMvKWvpqUmyY3N-xFqTglUx9wA6wVanYA" alt="2025 Data Visualization in Tableau and Python by Udemy">
+                <h3>2025 Data Visualization in Tableau and Python by Udemy</h3>
+                <a href="https://media.licdn.com/dms/image/v2/D5622AQHZlH1AWQ8Hdw/feedshare-shrink_800/B56ZcbMKxeGoAk-/0/1748507865060?e=1751500800&v=beta&t=_YOD8Su4mOCMvKWvpqUmyY3N-xFqTglUx9wA6wVanYA" target="_blank">View</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="connect" class="connect">
+        <h2>Connect with Me</h2>
+        <p>Feel free to Connect with Me!</p>
+        <a href="https://www.linkedin.com/in/bhargavi-koritala-586155295/s" target="_blank"><img src="https://tse4.mm.bing.net/th?id=OIP.Ff1a2zx1DnGg5rppyqq-XwHaHa&pid=Api&P=0&h=220" alt="LinkedIn"></a>
+        <a href="https://github.com/KoritalaBhargavi" target="_blank"><img src="https://tse1.mm.bing.net/th?id=OIP.sV7tva-728oySeOUL0-vOwHaHa&pid=Api&P=0&h=220" alt="GitHub"></a>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Get In Touch</h2>
+        <form class="contact-form" action="form.php" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="subject">Subject:</label>
+    <input type="text" id="subject" name="subject" required>
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" rows="6" required></textarea>
+
+    <button type="submit">Send Message</button>
+</form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Koritala Bhargavi. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navList = document.querySelector('.nav-list');
+
+        mobileMenu.addEventListener('click', () => {
+            navList.classList.toggle('open');
+        });
+        document.querySelectorAll('.nav-list a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navList.classList.contains('open')) {
+                    navList.classList.remove('open');
+                }
+            });
+        });
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
