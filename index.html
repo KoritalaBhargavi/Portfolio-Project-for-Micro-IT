@@ -700,52 +700,9 @@
         <a href="https://github.com/KoritalaBhargavi" target="_blank"><img src="https://tse1.mm.bing.net/th?id=OIP.sV7tva-728oySeOUL0-vOwHaHa&pid=Api&P=0&h=220" alt="GitHub"></a>
     </section>
 
-    <section id="contact" class="contact">
-        <h2>Get In Touch</h2>
-        <form class="contact-form" action="form.php" method="POST">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required>
-
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
-
-    <label for="subject">Subject:</label>
-    <input type="text" id="subject" name="subject" required>
-
-    <label for="message">Message:</label>
-    <textarea id="message" name="message" rows="6" required></textarea>
-
-    <button type="submit">Send Message</button>
-</form>
-    </section>
-
+    
     <footer>
         <p>&copy; 2025 Koritala Bhargavi. All rights reserved.</p>
     </footer>
-
-    <script>
-        const mobileMenu = document.getElementById('mobile-menu');
-        const navList = document.querySelector('.nav-list');
-
-        mobileMenu.addEventListener('click', () => {
-            navList.classList.toggle('open');
-        });
-        document.querySelectorAll('.nav-list a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (navList.classList.contains('open')) {
-                    navList.classList.remove('open');
-                }
-            });
-        });
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
 </body>
 </html>
